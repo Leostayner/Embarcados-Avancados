@@ -1,0 +1,23 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst niosHello.clk_0 -pg 1 -lvl 1 -y 370
+preplace inst niosHello.nios2_gen2_0.clock_bridge -pg 1
+preplace inst niosHello.nios2_gen2_0 -pg 1 -lvl 2 -y 70
+preplace inst niosHello.onchip_memory2_0 -pg 1 -lvl 3 -y 210
+preplace inst niosHello.onchip_memory2_1 -pg 1 -lvl 3 -y 130
+preplace inst niosHello -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst niosHello.nios2_gen2_0.cpu -pg 1
+preplace inst niosHello.pio_0 -pg 1 -lvl 3 -y 410
+preplace inst niosHello.pio_1 -pg 1 -lvl 3 -y 290
+preplace inst niosHello.nios2_gen2_0.reset_bridge -pg 1
+preplace inst niosHello.jtag_uart_0 -pg 1 -lvl 3 -y 30
+preplace netloc EXPORT<net_container>niosHello</net_container>(SLAVE)niosHello.leds,(SLAVE)pio_0.external_connection) 1 0 3 NJ 360 NJ 360 NJ
+preplace netloc POINT_TO_POINT<net_container>niosHello</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)pio_1.irq) 1 2 1 700
+preplace netloc EXPORT<net_container>niosHello</net_container>(SLAVE)niosHello.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>niosHello</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)niosHello.reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>niosHello</net_container>(MASTER)clk_0.clk,(SLAVE)pio_0.clk,(SLAVE)jtag_uart_0.clk,(SLAVE)pio_1.clk,(SLAVE)onchip_memory2_1.clk1,(SLAVE)nios2_gen2_0.clk,(SLAVE)onchip_memory2_0.clk1) 1 1 2 260 300 740
+preplace netloc EXPORT<net_container>niosHello</net_container>(SLAVE)niosHello.key,(SLAVE)pio_1.external_connection) 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc INTERCONNECT<net_container>niosHello</net_container>(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)onchip_memory2_1.s1,(SLAVE)pio_1.s1,(SLAVE)pio_0.s1,(MASTER)nios2_gen2_0.instruction_master,(MASTER)nios2_gen2_0.data_master,(SLAVE)onchip_memory2_0.s1) 1 1 2 300 210 680
+preplace netloc FAN_OUT<net_container>niosHello</net_container>(SLAVE)onchip_memory2_1.reset1,(SLAVE)onchip_memory2_0.reset1,(SLAVE)nios2_gen2_0.reset,(SLAVE)jtag_uart_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_1.reset,(SLAVE)pio_0.reset) 1 1 2 280 340 720
+levelinfo -pg 1 0 50 970
+levelinfo -hier niosHello 60 90 420 810 960
